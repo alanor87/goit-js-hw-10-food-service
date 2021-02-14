@@ -7,18 +7,20 @@ const bodyRef = document.querySelector('body');
 
 function onLoadTheme() {
     if (localStorage.getItem('theme') === 'DARK') {
-        themeToggle();
+        bodyRef.classList.replace(Theme.LIGHT, Theme.DARK);
+        localStorage.setItem('theme', 'DARK');
         themeToggleRef.checked = true;
     }
 }
 
 function themeToggle() {
-    bodyRef.classList.toggle(Theme.DARK);
-    switch (themeToggleRef.checked) {        
+    switch (themeToggleRef.checked) {    
         case true:
+            bodyRef.classList.replace(Theme.LIGHT, Theme.DARK);
             localStorage.setItem('theme', 'DARK');
             break;
         case false:
+            bodyRef.classList.replace(Theme.DARK, Theme.LIGHT);
             localStorage.setItem('theme', 'LIGHT');
             break;
      }
